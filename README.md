@@ -1,28 +1,28 @@
 # JQL
 Json Query Language is a basic emulator of Mysql, using json and python
 
-## Features
+### Features
 - Simulate basic SQL queries (SELECT, INSERT, DELETE, INNER JOIN) using JSON.
 - Lightweight and easy to use.
 - No need for a MySQL server setup.
 
-## Usage
+### Usage
 import Database
 json_file_path="database.json"
 db=Database(json_file_path) # Database object
 
-# add table
+#### add table
 db.create_tabella("nome_tabella")
 
-# select table 
+#### select table 
 db.select_tabella("nome_tabella") #this return an object Tabella
 
-# add collumn
+#### add collumn
 table=db.select_tabella("nome_tabella")
 table.add_campo("nome_campo_1")
 db.select_tabella("nome_tabella").add_campo("nome_campo_2") # or this for simplicity
 
-# insert values into table
+#### insert values into table
 data={
   "nome_campo_1":"value_1",
   "nome_campo_2":"value_2"
@@ -31,8 +31,8 @@ data={
 db.select_tabella("nome_tabella").insert_into_table(data)
 
 
-## all methods
-
+#### all methods
+```
 Database:
   |__ select_tabella(nome_tabella:str) --> Tabella
   |__ create_tabella(nome_tabella:str) --> self
@@ -57,4 +57,4 @@ Campo:
   |__ get_index_element(element) --> list
   |__ remove_element_by_index(index:int) --> self
   |__ get_element_by_index(index) --> Any
-
+```
